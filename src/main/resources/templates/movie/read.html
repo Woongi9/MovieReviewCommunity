@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <th:block th:replace="~{/layout/basic :: setContent(~{this::content} )}">
 
     <th:block th:fragment="content">
 
-        <h1 class="mt-4">영화 목록</h1>
+        <h1 class="mt-4">영화 페이지
+
+            <span>
+                <a sec:authorize="isAnonymous()" th:href="@{/login}">
+                    <button type="button" class="btn btn-success">로그인</button>
+                </a>
+                <a sec:authorize="isAuthenticated()" th:href="@{/logout}">
+                    <button type="button" class="btn btn-danger">로그아웃</button>
+                </a>
+            </span>
+        </h1>
 
         <div class="form-group">
             <label>제목</label>
@@ -55,6 +65,10 @@
             </ul>
         </div>
 
+
+        <a th:href="@{/movie/list}">
+            <button type="button" class="btn btn-secondary">목록</button>
+        </a>
         <button type="button" class="btn btn-primary">
             리뷰<span class="badge badge-light">  [[${dto.reviewCnt}]]</span>
         </button>
@@ -80,7 +94,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>ID</label>
-                            <input type="text" class="form-control" name="mid">
+                            <input type="text" class="form-control" name="mid" disabled>
                         </div>
                         <div class="form-group">
                             <label>평점<span class="grade"></span></label>
@@ -196,8 +210,9 @@
                             console.log(review);
 
                             str += '    <div class="card-body" data-reviewnum='+review.reviewnum+' data-mid='+review.mid+'>';
-                            str += '    <h5 class="card-title">'+review.text+' <span>'+ review.grade+'</span></h5>';
-                            str += '    <h6 class="card-subtitle mb-2 text-muted">'+review.nickname+'</h6>';
+                            str += '    <h5 class="card-title">'+review.text+'  - <span>'+ review.grade+'</span>점</h5>';
+
+                            str += '    <h6 class="card-subtitle mb-2 text-muted">'+review.nickname+' </h6>';
                             str += '    <p class="card-text">'+ formatTime(review.regDate)+'</p>';
                             str += '    </div>';
                         });
@@ -213,6 +228,8 @@
                 var reviewnum;
 
                 $(".reviewList").on("click", ".card-body", function(){
+
+
 
                     $(".reviewSaveBtn").hide();
                     $(".removeBtn, .modifyBtn").show();
@@ -231,6 +248,7 @@
 
                     $('.reviewModal').modal('show');
                 });
+
 
                 $(".modifyBtn").on("click", function(){
 

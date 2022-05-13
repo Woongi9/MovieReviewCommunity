@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <th:block th:replace="~{/layout/basic :: setContent(~{this::content} )}">
 
@@ -8,7 +8,13 @@
         <h1 class="mt-4">영화 목록
             <span>
                 <a th:href="@{/movie/register}">
-                    <button type="button" class="btn btn-outline-primary">영화 등록</button>
+                    <button type="button" class="btn btn-primary">영화 등록</button>
+                </a>
+                <a sec:authorize="isAnonymous()" th:href="@{/login}">
+                    <button type="button" class="btn btn-success">로그인</button>
+                </a>
+                <a sec:authorize="isAuthenticated()" th:href="@{/logout}">
+                    <button type="button" class="btn btn-danger">로그아웃</button>
                 </a>
             </span>
         </h1>
@@ -23,6 +29,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">제목 & 사진</th>
+                <th scope="col">리뷰</th>
                 <th scope="col">평점</th>
                 <th scope="col">등록일</th>
             </tr>
