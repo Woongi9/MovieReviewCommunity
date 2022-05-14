@@ -14,7 +14,6 @@ import org.zerock.review.entity.MemberRole;
 import org.zerock.review.repository.MemberRepository;
 import org.zerock.review.security.dto.AuthMemberDTO;
 
-import java.util.HashSet;
 import java.util.Optional;
 import java.util.stream.Collectors;
 

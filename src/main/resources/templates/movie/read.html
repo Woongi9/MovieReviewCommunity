@@ -94,7 +94,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>ID</label>
-                            <input type="text" class="form-control" name="mid" disabled>
+                            <input type="text" class="form-control" name="mid" sec:authentication="name">
                         </div>
                         <div class="form-group">
                             <label>평점<span class="grade"></span></label>
@@ -228,8 +228,6 @@
                 var reviewnum;
 
                 $(".reviewList").on("click", ".card-body", function(){
-
-
 
                     $(".reviewSaveBtn").hide();
                     $(".removeBtn, .modifyBtn").show();
