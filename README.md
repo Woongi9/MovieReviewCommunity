@@ -98,28 +98,54 @@
 
 ## <div id="화면">실행 화면</div>
 
-1. 로그인 & 로그아웃
-1.1 유저 로그인
-<img src=“https://user-images.githubusercontent.com/79649052/168415058-8071fe48-21cd-4363-93c5-d3be83593d4b.gif” width="400" height="280"/>
+### 1. 로그인 & 로그아웃
+#### 1.1 유저 로그인
+<img width="80%" src="https://user-images.githubusercontent.com/79649052/168415306-e82e1531-7dec-4e2b-8753-cb258f236408.gif"/>
 
-1.2 구글 소셜 로그인
+<br></br>
 
-2. 영화 목록
+#### 1.2 구글 소셜 로그인
+<img width="80%" src="https://user-images.githubusercontent.com/79649052/168415413-156f061b-0075-4493-852d-eb95730d91a3.gif"/>
 
+<br></br>
+
+### 2. 영화 목록
+<img width="80%" src="https://user-images.githubusercontent.com/79649052/168415494-25274eb3-2d60-45f9-ba12-fa62e2698160.gif"/>
 
 _2 페이지부터는 테스트 코드를 통한 반복 생성으로 이미지 따로 지정 X_
 
-3. 영화 등록
-3.1 유저 권한
+<br></br>
 
-3.2 관리자 권한
+### 3. 영화 등록
+#### 3.1 유저 권한
 
-4. 영화 상세 페이지
+<img width="80%" src="https://user-images.githubusercontent.com/79649052/168415509-07e4bbc6-3750-4dce-8587-eb8023157d45.gif"/>
 
-5. 리뷰 등록
+_Chrome에 구글 로그이 되어있느 사용자가 있어 클릭만 해도 별도의 계정 정보 입력없이 로그인_
 
-6. 리뷰 수정 & 삭제
+<br></br>
 
+#### 3.2 관리자 권한
+
+<img width="80%" src="https://user-images.githubusercontent.com/79649052/168415516-8cb2cfcc-7b3c-417d-9a8f-5fc261708224.gif"/>
+
+<br></br>
+
+### 4. 영화 상세 페이지
+
+<img width="80%" src="https://user-images.githubusercontent.com/79649052/168415524-9cee9a0c-4865-47ac-a10d-e5382e9805aa.gif"/>
+
+<br></br>
+
+### 5. 리뷰 등록
+
+<img width="80%" src="https://user-images.githubusercontent.com/79649052/168415565-817eb456-bd26-44db-b39c-1611d59a0079.gif"/>
+
+<br></br>
+
+### 6. 리뷰 수정 & 삭제
+
+<img width="80%" src="https://user-images.githubusercontent.com/79649052/168415591-3a34ddb2-393e-4860-a4b1-9d13a03899ff.gif"/>
 
 <br></br>
 
