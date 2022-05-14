@@ -167,6 +167,30 @@ _Chrome에 구글 로그이 되어있느 사용자가 있어 클릭만 해도 �
 
 ## <div id="시퀀스">시퀀스 다이어그램</div>
 
+1. 영화 목록
+<img width="724" alt="image" src="https://user-images.githubusercontent.com/79649052/168443636-88e4e419-ed6e-4351-af30-a0c8760fbc4f.png">
+<br></br>
+
+2. 영화 개별 페이지
+<img width="543" alt="image" src="https://user-images.githubusercontent.com/79649052/168444016-3d12cec4-bca8-4581-8581-ea97987abca6.png">
+<br></br>
+
+3. 영화 등록
+<img width="657" alt="image" src="https://user-images.githubusercontent.com/79649052/168444545-0df7af67-c9f0-47b4-85ea-5686cd79f7bb.png">
+<br></br>
+
+4. 리뷰 출력
+<img width="608" alt="image" src="https://user-images.githubusercontent.com/79649052/168445286-88c3585a-a01e-4abf-8d66-d4cc13433ac9.png">
+
+<br></br>
+
+5. 리뷰 등록
+<img width="490" alt="image" src="https://user-images.githubusercontent.com/79649052/168445114-dde5162f-af53-4035-b732-de46fd97c994.png">
+<br></br>
+
+6. 리뷰 수정
+<img width="444" alt="image" src="https://user-images.githubusercontent.com/79649052/168445428-36bef563-a85e-4dd3-9ed8-92834634754a.png">
+
 <br></br>
 
 ---
