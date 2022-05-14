@@ -16,13 +16,6 @@
 - [E-R 다이어그램](#다이어그램)
 - [시퀀스 다이어그램](#시퀀스)
 - [핵심 기능](#핵심)
-  + [로그인 & 로그아웃](#로그인)
-  + [쿠키 생성](#쿠키)
-  + [세션 관리](#세션)
-  + [서블릿 필터](#필터)
-  + [타임아웃](#타임아웃)
-  + [Firebase DB 접근](#DB접근)
-  + [타임리프, 체크박스, 라디오 버튼, 셀렉트 박스](#items)
 - [프로젝트를 통해 느낀점](#느낀점)
 
 <br></br>
@@ -61,7 +54,6 @@
 + Thymeleaf
 + Lombok
 + JPA
-+ Querydsl
 + JPQL
 
 ### Build tool
@@ -88,17 +80,45 @@
 * MVC 프레임워크 기반 백엔드 서버 구축
 * JPA 사용, Hibernate를 사용한 도메인 설계
 * Spring Security를 사용한 로그인 과정
+* 구글 소셜 로그인 구현
 
 <br></br>
 
 ---
 ## <div id="패키지">패키징 구조</div>
 
+<img width="338" alt="image" src="https://user-images.githubusercontent.com/79649052/168413841-413adc0a-9933-41f8-b41b-dd8f0c636b6d.png">
+<img width="338" alt="image" src="https://user-images.githubusercontent.com/79649052/168413921-a6721342-499c-4397-a496-b42355de816a.png">
+<img width="338" alt="image" src="https://user-images.githubusercontent.com/79649052/168413936-21219a77-b916-492a-93fd-96b0be88bd5e.png">
+<img width="338" alt="image" src="https://user-images.githubusercontent.com/79649052/168413946-3baa19bd-02ac-45fe-a9a8-9bc9fce20e78.png">
+
 <br></br>
 
 ---
 
 ## <div id="화면">실행 화면</div>
+
+1. 로그인 & 로그아웃
+1.1 유저 로그인
+<img src=“https://user-images.githubusercontent.com/79649052/168415058-8071fe48-21cd-4363-93c5-d3be83593d4b.gif” width="400" height="280"/>
+
+1.2 구글 소셜 로그인
+
+2. 영화 목록
+
+
+_2 페이지부터는 테스트 코드를 통한 반복 생성으로 이미지 따로 지정 X_
+
+3. 영화 등록
+3.1 유저 권한
+
+3.2 관리자 권한
+
+4. 영화 상세 페이지
+
+5. 리뷰 등록
+
+6. 리뷰 수정 & 삭제
 
 
 <br></br>
@@ -113,7 +133,6 @@
 ---
 
 ## <div id="다이어그램">시퀀스 다이어그램</div>
-<img width="500" alt="image" src="https://user-images.githubusercontent.com/79649052/160884813-2e96ed49-c764-4900-b4f6-ca493ac1fdc8.png">
 
 <br></br>
 
