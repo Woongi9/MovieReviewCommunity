@@ -126,7 +126,6 @@ _2 페이지부터는 테스트 코드를 통한 반복 생성으로 이미지 �
 ---
 
 ## <div id="아키텍처">시스템 아키텍처</div>
-<img width="577" alt="image" src="https://user-images.githubusercontent.com/79649052/160830171-4787b5fb-d9bf-4f36-8cd3-e8b975b00061.png">
 
 <br></br>
 
