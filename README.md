@@ -153,6 +153,9 @@ _Chrome에 구글 로그이 되어있느 사용자가 있어 클릭만 해도 �
 
 ## <div id="아키텍처">시스템 아키텍처</div>
 
+<img width="752" alt="image" src="https://user-images.githubusercontent.com/79649052/168418835-4e8d448d-7ae8-4302-84e5-772592c0ee2a.png">
+
+
 <br></br>
 
 ---
