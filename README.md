@@ -18,10 +18,7 @@
 - [핵심 기능](#핵심)
 - [프로젝트를 통해 느낀점](#느낀점)
 
-<br></br>
-
 ---
-
 ## <div id="목적">개발 목적</div>
 
  이전에 했던 프로젝트의 기술들과 새롭게 배운 JPA와 Querydsl, Spring Security를 추가로 하여 영화에 대하 리뷰 게시판을 만들어봤습니다. 그리고 추가적으로  AWS의 EC2, RDS, lambda, S3그리고 Travis CI를 업데이트 할 예정입니다.
@@ -160,13 +157,15 @@ _Chrome에 구글 로그이 되어있느 사용자가 있어 클릭만 해도 �
 
 ---
 
-## <div id="다이어그램">시퀀스 다이어그램</div>
+## <div id="다이어그램">클래스 다이어그램</div>
+
+<img width="860" alt="image" src="https://user-images.githubusercontent.com/79649052/168436350-4f5bfa9d-8652-46fe-ad1e-d111bfa50762.png">
 
 <br></br>
 
 ---
 
-## <div id="시퀀스">다이어그램</div>
+## <div id="시퀀스">시퀀스 다이어그램</div>
 
 <br></br>
 
