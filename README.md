@@ -16,6 +16,22 @@
 - [클래스 다이어그램](#다이어그램)
 - [시퀀스 다이어그램](#시퀀스)
 - [핵심 기능](#핵심)
+  + [DTO 계층과 서비스 계층 구성](#핵심1)
+  + [JUnit Test 구현](#핵심2)
+  + [JpaRepository를 통한 CRUD 구현](#핵심3)
+  + [로그인 여부 확인](#핵심4)
+  + [비밀번호 암호화](#핵심5)
+  + [회원가입 (진행중)](#핵심6)
+  + [구글 소셜 로그인과 회원가입](#핵심7)
+  + [로그인시 JPQL을 사용해 이메일 정보 검색](#핵심8)
+  + [유저 권한에 따른 페이지 접근 제한](#핵심9)
+  + [목록 페이지 처리](#핵심10)
+  + [영화 검색(진행중)](#핵심11)
+  + [Modal 창으로 리뷰 리스트 출력](#핵심12)
+  + [리뷰 별점](#핵심13)
+  + [이미지 업로드](#핵심14)
+  + [이미지 클릭 & 사진 확대](#핵심15)
+
 - [프로젝트를 통해 느낀점](#느낀점)
 
 ---
@@ -196,15 +212,140 @@ _Chrome에 구글 로그이 되어있느 사용자가 있어 클릭만 해도 �
 ---
 ## <div id="핵심">핵심 기능</div>
 
+### <div id="핵심1">DTO 계층과 서비스 계층 구성</div>
+<img width="192" alt="image" src="https://user-images.githubusercontent.com/79649052/168465090-5785f231-564e-45ae-a778-5f029a60b9c2.png">
+<img width="192" alt="image" src="https://user-images.githubusercontent.com/79649052/168465146-1e04758c-dce5-4b8b-bd8c-6371f350b08f.png">
+
+* 화면에 전달하는 데이터이거나 화면 쪽에서 전달되는 데이터 기준으로 DTO 구성
+* 서비스 계층에는 기본적으로 DTO에서 Entity로 Entity에서 DTO로 하는 함수와 추가적으로 DTO를 파라미터로 받을 때의 검색, 삭제, 수정 등 필요 함수 구현
+<br></br>
+
+### <div id="핵심2">JUnit Test 구현</div>
+
+<img width="223" alt="image" src="https://user-images.githubusercontent.com/79649052/168465177-8c75cf52-60d9-4658-8bbb-acf2f8771a66.png">
+* 회원과 영화, 리뷰 예시 추가와 삭제 수정 등 웹 페이지로 구현 전 사전의 기능 확인 코드 JUnit Test를 통해 구현하고 확인과 수정
+<br></br>
+
+### <div id="핵심3">JpaRepository를 통한 CRUD 구현</div>
+
+* JpaRepository는 CRUD 구현 뿐만 아니라 paging, sorting, jpa 특화 기능이기에 모든 Repository 인터페이스는 JpaRepository를 상속
+
+
+<br></br>
+
+### <div id="핵심4">로그인된 상태 확인</div>
+
+<img width="347" alt="image" src="https://user-images.githubusercontent.com/79649052/168465422-26dd00a2-d46f-4e39-a242-9fd4eeaf441a.png">
+<로그인X>
+
+<img width="347" alt="image" src="https://user-images.githubusercontent.com/79649052/168465449-8a6159ed-08d6-4dce-bc88-525b0b9160b5.png">
+<로그인O>
+
+<img width="508" alt="image" src="https://user-images.githubusercontent.com/79649052/168465488-ebe0c87e-57c7-4012-ae38-87f52c99bf82.png">
+* 스프링 시큐리티를 통해 로그인하는 과정이므로 Thymeleaf security의 Authorize 함수를 통해 현재 로그인이 된 상태인 경우 로그아웃 버튼만 보이게 페이지 출력되고, 로그아웃인 상태인 경우 로그인 버튼이 보이게 페이지가 출력된다.
+<br></br>
+
+### <div id="핵심5">비밀번호 암호화</div>
+  
+<img width="344" alt="image" src="https://user-images.githubusercontent.com/79649052/168465710-281a6e63-250a-4b5e-8fa4-bf1fa3df4702.png">
+<img width="568" alt="image" src="https://user-images.githubusercontent.com/79649052/168465749-89ef816a-7b13-4311-8f38-715068672240.png">
+* BCryptPasswordEncoder는 bcrypt라는 해시 함수를 이용해 패스워드 암호화
+
+* 복호화는 불가능하므로 DB 유출 시에도 비밀번호를 맞출 수 없다.
+
+<img width="538" alt="image" src="https://user-images.githubusercontent.com/79649052/168465811-ddf69bbe-b212-464f-bfc8-ec0a557f18ec.png">
+* 패스워드 JUnit 테스트 코드를 통해 이전의 비밀번호와 암호화된 비밀번호는 같은 String 으로 출력되는 것을 PasswordEncoder의 matches 메소드 true 값으로 확인할 수 있다.
+<br></br>
+
+### <div id="핵심6">회원가입 (진행중)</div>
+<br></br>
+
+### <div id="핵심7">구글 소셜 로그인과 회원가입</div>
+  
+[구글 소셜 로그인과 회원가입](https://github.com/Woongi9/MovieReviewCommunity/blob/master/src/main/java/org/zerock/review/security/service/OAuth2UserDetailsService.java/loadUser)
+* 회원가입이 되지 않은 상태에서는 SaveSocialMember 메소드를 통해 회원가입과 DB에 엔티티가 저장되며 로그인
+
+* 회원가입이 된 회원인 경우 loadUser를 통해 로그인되며 AuthMemberDTO로 리턴되면서 회원 정보를 전달
+<br></br>
+
+### <div id="핵심8">로그인시 JPQL을 사용해 이메일 정보 검색</div>
+  
+<img width="690" alt="image" src="https://user-images.githubusercontent.com/79649052/168466569-487ad144-2b76-4b68-97f5-4511d100b3ad.png">
+* 로그인 과정이 구글 소셜 로그인과 아이디 비밀번호를 입력하는 일반 로그인이 있어서 이 둘을 나누는 기준이 Member 엔티티에서 fromSocial을 통해 두 로그인 방식을 구분과 이메일이 등록되어있는지 확인한다.
+<br></br>
+
+### <div id="핵심9">유저 권한에 따른 페이지 접근 제한</div>
+  
+<img width="510" alt="image" src="https://user-images.githubusercontent.com/79649052/168466746-b40b2ef8-ea0e-43ed-9c4b-fd3b95e1d2f9.png">
+<img width="510" alt="image" src="https://user-images.githubusercontent.com/79649052/168466754-9d800c18-8f09-4547-a4cc-a857d7c0e314.png">
+<img width="392" alt="image" src="https://user-images.githubusercontent.com/79649052/168466770-1693dea1-e931-4a82-954c-4c235e0a48a0.png">
+
+* 스프링 시큐리티의 @PreAuthorize를 통해 현재 사용자의 MemberRole의 상태에 따라 페이지 들어갈 수 있는 자격이 있는지 확인한다.
+
+* 리스트 페이지는 “permitAll()”를 통해 모두가 입장 가능하지만 영화 상세 페이지는 “hasRole(‘USER’)”
+를 통해 유저의 권한을 가진 사용자만 들어갈 수 있고, 
+영화 등록 페이지는 “hasRole(‘MANAGER’)”
+를 통해 관리자 권한을 가진 사용자만 입장 가능하다.
+<br></br>
+
+### <div id="핵심10">목록 페이지 처리</div>
+  
+<img width="606" alt="image" src="https://user-images.githubusercontent.com/79649052/168467408-dc1757a1-3cf7-4e9b-bab1-1246415fae39.png">
+
+<img width="606" alt="image" src="https://user-images.githubusercontent.com/79649052/168467397-1655cb78-d4d5-4f16-85f0-d8cfad896dc4.png">
+
+
+[PageRequestDTO](https://github.com/Woongi9/MovieReviewCommunity/blob/master/src/main/java/org/zerock/review/dto/PageRequestDTO.java)
+
+[PageResultDTO](https://github.com/Woongi9/MovieReviewCommunity/blob/master/src/main/java/org/zerock/review/dto/PageResultDTO.java)
+
+* PageRequestDTO를 현재 페이지에서 필요한 영화의 목록들 페이지 숫자와 페이지 별 리스트 사이즈를 PageResultDTO로 전달
+
+* PageResultDTO는 이에 맞춰 해당 페이지 리스트를 만들어주고 페이지 번호를 출력하고 밑에 Prev 버튼은 클릭시 클릭할 수 있는 맨 오른쪽 페이지에서 +1, Next 버튼은 맨 왼쪽 페이지에서 -1로 기능하도록 페이지 번호와 같이 출력
+<br></br>
+
+### <div id="핵심11">영화 검색(진행중)</div>
+  
+<br></br>
+
+### <div id="핵심12">Modal 창으로 리뷰 리스트 출력</div>
+  
+<br></br>
+
+### <div id="핵심13">리뷰 별점</div>
+  
+<img width="490" alt="image" src="https://user-images.githubusercontent.com/79649052/168467268-b16a61a8-df92-4a7d-b251-05d3fa4f5c59.png">
+
+* starr 라이브러리를 통해 별점 입력 UI 적용
+<br></br>
+
+### <div id="핵심14">이미지 업로드</div>
+  
+<img width="626" alt="image" src="https://user-images.githubusercontent.com/79649052/168470843-7d9deab4-b9ad-4a5d-a8a0-7ad96c356e15.png">
+
+* 이미지를 업로드 한다면 ajax 를 통해 PostMapping으로 UploadController에 보내주고, 올라온 파일들은 썸네일용 이미지를 추가하여 현재 시간에 맞는 폴더를 생성하고 저장한다.
+
+* 그리고 JavaScript의 함수로 저장된 썸네일 이미지들을 이미지 추가 밑에 보이도록 구현
+
+* x를 누르면 ajax로 PostMapping으로 해당 이미지를 uploadController의 RemoveFile메소드로 삭제해준다.
+
+<br></br>
+
+### <div id="핵심15">이미지 클릭시 확대</div>
+  
+<img width="626" alt="image" src="https://user-images.githubusercontent.com/79649052/168471419-11779e12-39c1-4648-b100-78d8e10c0c61.png">
+
+* 영화 상세 페이지에서 이미지 클릭시 ajax의 함수로 UploadController의 display 메소드를 매핑하여 해당 이미지의 썸네일 사진이 아닌 원본 사진을 Modal 창으로 띄워준다.
 <br></br>
 
 ---
 
 ## <div id="느낀점">프로젝트를 통해 느낀점</div>
 
-*  그동안 배웠던 스프링 부트와 백엔드에 대해 배운 것을 혼자서 프로젝트를 만드는게 확실히 많이 도움이 되는 것 같다. 강의로 들으면서 따라 치고, 따로 자료를 볼 때는 막연하게 느끼던 개념들을 확실히 직접 생각하고, 부딪혀 보니까 많이 성장함을 느꼈다. 하루에 밥을 먹고, 운동하고, 씻는 시간을 제외한 눈을 뜨고 감을 때까지 이 프로젝트에 열중하고 몰입할 수 있는 시간이었다.
-*  지금의 부족한 점 때문에 계속 발전하고 싶다. 다른 프로젝트나 훗날 이 일을 업으로 삼고, 일했을 때 지금과 같은 열정과 성취감으로 발전하는 개발자가 되고싶다. 
-*  아직 부족한 점이 많다. 앞으로 이 프로젝트는 현재 배우고있는 JPA도 사용하고, UI도 더 보기 좋게 바꿔놓을 것이다.
+*  지금까지 배워 본 스프링 부트와 스프링 시큐리티 그리고 JPA, Querydsl 등 다양한 기술을 최대한 녹여내려고 노력했다. 하다보니까 점점 더 기술에 욕심나고 아직 실제 사이트에 비하면 많이 조잡하다. 더 촘촘하고 짜임새있는 홈페이지를 만들기 위해서 후에 AWS와 같은 인프라와 DevOps 기능을 추가해서 더 완성도 높은 프로젝트로 만들 예정이다.
+
+* 사실 혼자서 진행중인 프로젝트이기에 꾸준하게 공부하고 이 프로젝트에 녹여내려고 많은 시간을 들였다. 하루에 12시간 넘게 해본적도 있었는데 벽에 부딪힐 때마다 다양한 구글링과 개발자들의 카페에 질문을 올리면서 오류를 수정하며 프로젝트를 진행했다. 이제 드는 생각은 게임을 할 때처럼 한 게임 진다고 무너지지 않고 더 높은 실력과 실력 점수를 가지기 위해 더 열심히 하려는 마음 가짐을 개발에 가질 수 있게 노력하고 있다. 그럼에도 혼자 진행한다는 것의 단점이라면 잘 하고있는지 올바른 방향으로 가고 있는지 잘 알 수가 없다. 점점 구체적인 기능을 구현하기에는 구글링 등으로도 쉽게 찾을 수가 없어진다. 실제 현직에서 경험을 쌓고, 조언과 질문을 구할 사람이 있었으면 더 빠른 성장을 할 수 있을거라고 생각한다.
+
 
 <br></br>
 ---
