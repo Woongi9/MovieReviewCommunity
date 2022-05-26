@@ -52,17 +52,47 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public PageResultDTO<MovieDTO, Object[]> getList(PageRequestDTO requestDTO) {
 
-        Pageable pageable = requestDTO.getPageable(Sort.by("mno").descending());
+        //검색 X
+        if(requestDTO.getKeyword() == null) {
+            Pageable pageable = requestDTO.getPageable(Sort.by("mno").descending());
 
-        Page<Object[]> result = movieRepository.getListPage(pageable);
+            Page<Object[]> result = movieRepository.getListPage(pageable);
 
-        Function<Object[], MovieDTO> fn = (arr -> entitiesToDTO(
-                (Movie) arr[0],
-                (List<MovieImage>) (Arrays.asList((MovieImage)arr[1])),
-                (Double) arr[2],
-                (Long)arr[3])
-        );
-        return new PageResultDTO<>(result, fn);
+            for (Object ob : result) {
+                System.out.println(result.toString());
+            }
+
+            Function<Object[], MovieDTO> fn = (arr -> entitiesToDTO(
+                    (Movie) arr[0],
+                    (List<MovieImage>) (Arrays.asList((MovieImage) arr[1])),
+                    (Double) arr[2],
+                    (Long) arr[3])
+            );
+            return new PageResultDTO<>(result, fn);
+        }else{
+            //검색 O
+            log.info("SearchPage..............................");
+
+            Function<Object[], MovieDTO> fn = (arr -> entitiesToDTO(
+                    (Movie) arr[0],
+                    (List<MovieImage>) (Arrays.asList((MovieImage)arr[1])),
+                    (Double) arr[2],
+                    (Long)arr[3])
+            );
+
+            Page<Object[]> result = movieRepository.searchPage(
+                    requestDTO.getType(),
+                    requestDTO.getKeyword(),
+                    requestDTO.getPageable(Sort.by("mno").descending())
+            );
+
+            for (Object ob : result) {
+                System.out.println(result.toString());
+            }
+
+            return new PageResultDTO<>(result, fn);
+        }
+
     }
 
     @Override

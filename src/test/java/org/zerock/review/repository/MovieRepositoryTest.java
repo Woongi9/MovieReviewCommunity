@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
@@ -73,5 +74,18 @@ class MovieRepositoryTest {
         for (Object[] arr : result) {
             System.out.println(Arrays.toString(arr));
         }
+    }
+
+    @Test
+    public void testSearch1() {
+        movieRepository.search1();
+    }
+
+    @Test
+    public void testSearchPage() {
+
+        Pageable pageable = PageRequest.of(0, 10, Sort.by("mno").descending());
+
+        movieRepository.searchPage("t","해리포터", pageable);
     }
 }

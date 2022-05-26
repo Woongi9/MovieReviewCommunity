@@ -20,8 +20,20 @@
         </h1>
 
         <form action="/movie/list" method="get" id="searchForm">
-            <input type="hidden" name="page" value="1">
-
+            <div class="input-group">
+                <input type="hidden" name="page" value="1">
+                <div class="input-group-pretend">
+                    <select class="custom-select" name="type">
+                        <option th:selected="${pageRequestDTO.type == null}"> ------- </option>
+                        <option value="t" th:selected="${pageRequestDTO.type == 't'}">제목</option>
+                    </select>
+                </div>
+                <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}">
+                <div class="input-group-append" id="button-addon4">
+                    <button class="btn btn-outline-secondary btn-search" type="button">Search</button>
+                    <button class="btn btn-outline-secondary btn-clear" type="button">Clear</button>
+                </div>
+            </div>
         </form>
 
         <table class="table table-striped">
@@ -76,7 +88,23 @@
         </ul>
 
         <script th:inline="javascript">
+            var msg = [[${msg}]];
 
+            console.log(msg);
+
+            if(msg){
+                $(".modal").modal();
+            }
+
+            var searchForm = $("#searchForm");
+
+            $('.btn-search').click(function(e){
+                searchForm.submit();
+            });
+
+            $('.btn-clear').click(function(e){
+                searchForm.empty().submit();
+            });
         </script>
     </th:block>
 </th:block>
