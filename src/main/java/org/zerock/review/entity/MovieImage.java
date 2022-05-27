@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Getter
 @ToString(exclude = "movie")
 public class MovieImage {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long inum;

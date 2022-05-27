@@ -86,6 +86,6 @@ class MovieRepositoryTest {
 
         Pageable pageable = PageRequest.of(0, 10, Sort.by("mno").descending());
 
-        movieRepository.searchPage("t","해리포터", pageable);
+        movieRepository.searchPage("해리포터", pageable);
     }
 }

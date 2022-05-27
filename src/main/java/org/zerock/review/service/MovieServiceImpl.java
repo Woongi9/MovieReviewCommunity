@@ -69,9 +69,17 @@ public class MovieServiceImpl implements MovieService {
                     (Long) arr[3])
             );
             return new PageResultDTO<>(result, fn);
+
         }else{
-            //검색 O
+//            //검색 O
             log.info("SearchPage..............................");
+
+//            Function<Object[], MovieDTO> fn = (arr -> entitiesToDTO(
+//                    (Movie) arr[0],
+//                    (List<MovieImage>) (Arrays.asList((MovieImage)arr[1])),
+//                    (Double) arr[2],
+//                    (Long)arr[3])
+//            );
 
             Function<Object[], MovieDTO> fn = (arr -> entitiesToDTO(
                     (Movie) arr[0],
@@ -81,13 +89,12 @@ public class MovieServiceImpl implements MovieService {
             );
 
             Page<Object[]> result = movieRepository.searchPage(
-                    requestDTO.getType(),
                     requestDTO.getKeyword(),
                     requestDTO.getPageable(Sort.by("mno").descending())
             );
 
             for (Object ob : result) {
-                System.out.println(result.toString());
+                System.out.println(ob.toString());
             }
 
             return new PageResultDTO<>(result, fn);

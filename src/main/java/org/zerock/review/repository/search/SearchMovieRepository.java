@@ -8,5 +8,5 @@ public interface SearchMovieRepository {
 
     Movie search1();
 
-    Page<Object[]> searchPage(String type, String keyword, Pageable pageable);
+    Page<Object[]> searchPage(String keyword, Pageable pageable);
 }

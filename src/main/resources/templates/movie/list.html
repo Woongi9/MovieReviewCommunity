@@ -24,8 +24,7 @@
                 <input type="hidden" name="page" value="1">
                 <div class="input-group-pretend">
                     <select class="custom-select" name="type">
-                        <option th:selected="${pageRequestDTO.type == null}"> ------- </option>
-                        <option value="t" th:selected="${pageRequestDTO.type == 't'}">제목</option>
+                        <option th:selected="${pageRequestDTO.type == null}"> 제목 </option>
                     </select>
                 </div>
                 <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}">
