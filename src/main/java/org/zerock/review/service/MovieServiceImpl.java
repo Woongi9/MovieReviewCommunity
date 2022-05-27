@@ -71,15 +71,8 @@ public class MovieServiceImpl implements MovieService {
             return new PageResultDTO<>(result, fn);
 
         }else{
-//            //검색 O
+            //검색 O
             log.info("SearchPage..............................");
-
-//            Function<Object[], MovieDTO> fn = (arr -> entitiesToDTO(
-//                    (Movie) arr[0],
-//                    (List<MovieImage>) (Arrays.asList((MovieImage)arr[1])),
-//                    (Double) arr[2],
-//                    (Long)arr[3])
-//            );
 
             Function<Object[], MovieDTO> fn = (arr -> entitiesToDTO(
                     (Movie) arr[0],
