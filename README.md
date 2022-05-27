@@ -21,16 +21,15 @@
   + [JpaRepository를 통한 CRUD 구현](#핵심3)
   + [로그인 여부 확인](#핵심4)
   + [비밀번호 암호화](#핵심5)
-  + [회원가입 (진행중)](#핵심6)
-  + [구글 소셜 로그인과 회원가입](#핵심7)
-  + [로그인시 JPQL을 사용해 이메일 정보 검색](#핵심8)
-  + [유저 권한에 따른 페이지 접근 제한](#핵심9)
-  + [목록 페이지 처리](#핵심10)
-  + [Querydsl을 사용한 영화 검색(진행중)](#핵심11)
-  + [Modal 창으로 리뷰 리스트 출력](#핵심12)
-  + [리뷰 별점](#핵심13)
-  + [이미지 업로드](#핵심14)
-  + [이미지 클릭 & 사진 확대](#핵심15)
+  + [구글 소셜 로그인과 회원가입](#핵심6)
+  + [로그인시 JPQL을 사용해 이메일 정보 검색](#핵심7)
+  + [유저 권한에 따른 페이지 접근 제한](#핵심8)
+  + [목록 페이지 처리](#핵심9)
+  + [Querydsl을 사용한 영화 검색](#핵심10)
+  + [Modal 창으로 리뷰 리스트 출력](#핵심11)
+  + [리뷰 별점](#핵심12)
+  + [이미지 업로드](#핵심13)
+  + [이미지 클릭 & 사진 확대](#핵심14)
 
 - [프로젝트를 통해 느낀점](#느낀점)
 
@@ -257,10 +256,7 @@ _Chrome에 구글 로그이 되어있느 사용자가 있어 클릭만 해도 �
 * 패스워드 JUnit 테스트 코드를 통해 이전의 비밀번호와 암호화된 비밀번호는 같은 String 으로 출력되는 것을 PasswordEncoder의 matches 메소드 true 값으로 확인할 수 있다.
 <br></br>
 
-### <div id="핵심6">회원가입 (진행중)</div>
-<br></br>
-
-### <div id="핵심7">구글 소셜 로그인과 회원가입</div>
+### <div id="핵심6">구글 소셜 로그인과 회원가입</div>
   
 [구글 소셜 로그인과 회원가입](https://github.com/Woongi9/MovieReviewCommunity/blob/master/src/main/java/org/zerock/review/security/service/OAuth2UserDetailsService.java/loadUser)
 * 회원가입이 되지 않은 상태에서는 SaveSocialMember 메소드를 통해 회원가입과 DB에 엔티티가 저장되며 로그인
@@ -268,13 +264,13 @@ _Chrome에 구글 로그이 되어있느 사용자가 있어 클릭만 해도 �
 * 회원가입이 된 회원인 경우 loadUser를 통해 로그인되며 AuthMemberDTO로 리턴되면서 회원 정보를 전달
 <br></br>
 
-### <div id="핵심8">로그인시 JPQL을 사용해 이메일 정보 검색</div>
+### <div id="핵심7">로그인시 JPQL을 사용해 이메일 정보 검색</div>
   
 <img width="690" alt="image" src="https://user-images.githubusercontent.com/79649052/168466569-487ad144-2b76-4b68-97f5-4511d100b3ad.png">
 * 로그인 과정이 구글 소셜 로그인과 아이디 비밀번호를 입력하는 일반 로그인이 있어서 이 둘을 나누는 기준이 Member 엔티티에서 fromSocial을 통해 두 로그인 방식을 구분과 이메일이 등록되어있는지 확인한다.
 <br></br>
 
-### <div id="핵심9">유저 권한에 따른 페이지 접근 제한</div>
+### <div id="핵심8">유저 권한에 따른 페이지 접근 제한</div>
   
 <img width="510" alt="image" src="https://user-images.githubusercontent.com/79649052/168466746-b40b2ef8-ea0e-43ed-9c4b-fd3b95e1d2f9.png">
 <img width="510" alt="image" src="https://user-images.githubusercontent.com/79649052/168466754-9d800c18-8f09-4547-a4cc-a857d7c0e314.png">
@@ -288,7 +284,7 @@ _Chrome에 구글 로그이 되어있느 사용자가 있어 클릭만 해도 �
 를 통해 관리자 권한을 가진 사용자만 입장 가능하다.
 <br></br>
 
-### <div id="핵심10">목록 페이지 처리</div>
+### <div id="핵심9">목록 페이지 처리</div>
   
 <img width="606" alt="image" src="https://user-images.githubusercontent.com/79649052/168467408-dc1757a1-3cf7-4e9b-bab1-1246415fae39.png">
 
@@ -304,22 +300,33 @@ _Chrome에 구글 로그이 되어있느 사용자가 있어 클릭만 해도 �
 * PageResultDTO는 이에 맞춰 해당 페이지 리스트를 만들어주고 페이지 번호를 출력하고 밑에 Prev 버튼은 클릭시 클릭할 수 있는 맨 오른쪽 페이지에서 +1, Next 버튼은 맨 왼쪽 페이지에서 -1로 기능하도록 페이지 번호와 같이 출력
 <br></br>
 
-### <div id="핵심11">Querydsl을 사용한 영화 검색(진행중)</div>
+### <div id="핵심10">Querydsl을 사용한 영화 검색</div>
+
+#### 22.05.27 기능 추가 완료
+
+<img width="254" alt="image" src="https://user-images.githubusercontent.com/79649052/170722856-f2ad79c5-1c6c-45aa-9cfa-a45cf3a1d768.png">
+
+<img width="847" alt="image" src="https://user-images.githubusercontent.com/79649052/170722750-617f0e19-e82e-4e5d-af1e-99a509bb7408.png">
+
+* 저장소에 새로운 검색 처리 저장소를 만들고 SearchPage 함수를 Qdsl을 통해 구현
+
+  <img width="635" alt="image" src="https://user-images.githubusercontent.com/79649052/170722402-038ef56d-cc6f-4883-bc25-376f3ea46373.png">
+  
+* 검색 결과 화면
+<br></br>
+
+### <div id="핵심11">Modal 창으로 리뷰 리스트 출력</div>
   
 <br></br>
 
-### <div id="핵심12">Modal 창으로 리뷰 리스트 출력</div>
-  
-<br></br>
-
-### <div id="핵심13">리뷰 별점</div>
+### <div id="핵심12">리뷰 별점</div>
   
 <img width="490" alt="image" src="https://user-images.githubusercontent.com/79649052/168467268-b16a61a8-df92-4a7d-b251-05d3fa4f5c59.png">
 
 * starr 라이브러리를 통해 별점 입력 UI 적용
 <br></br>
 
-### <div id="핵심14">이미지 업로드</div>
+### <div id="핵심13">이미지 업로드</div>
   
 <img width="626" alt="image" src="https://user-images.githubusercontent.com/79649052/168470843-7d9deab4-b9ad-4a5d-a8a0-7ad96c356e15.png">
 
@@ -331,7 +338,7 @@ _Chrome에 구글 로그이 되어있느 사용자가 있어 클릭만 해도 �
 
 <br></br>
 
-### <div id="핵심15">이미지 클릭시 확대</div>
+### <div id="핵심14">이미지 클릭시 확대</div>
   
 <img width="626" alt="image" src="https://user-images.githubusercontent.com/79649052/168471419-11779e12-39c1-4648-b100-78d8e10c0c61.png">
 
