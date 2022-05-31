@@ -8,20 +8,20 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @SpringBootTest
 public class PasswordTest {
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Test
-    public void testEncode() {
-
-        String password = "1111";
-
-        String enPw = passwordEncoder.encode(password);
-
-        System.out.println("enPw: " + enPw);
-
-        boolean matchResult = passwordEncoder.matches(password, enPw);
-
-        System.out.println("matchResult: " + matchResult);
-    }
+//    @Autowired
+//    private PasswordEncoder passwordEncoder;
+//
+//    @Test
+//    public void testEncode() {
+//
+//        String password = "1111";
+//
+//        String enPw = passwordEncoder.encode(password);
+//
+//        System.out.println("enPw: " + enPw);
+//
+//        boolean matchResult = passwordEncoder.matches(password, enPw);
+//
+//        System.out.println("matchResult: " + matchResult);
+//    }
 }
