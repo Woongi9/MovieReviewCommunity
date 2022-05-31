@@ -61,9 +61,6 @@ public class SearchMovieRepositoryImpl extends QuerydslRepositorySupport impleme
         query.leftJoin(movieImage).on(movieImage.movie.mno.eq(movie.mno)).groupBy(movieImage);
         query.leftJoin(review).on(review.movie.eq(movie));
 
-//        JPQLQuery<MovieImage> iquery = from(movieImage);
-//        query.innerJoin(movie).on(movie.eq(movieImage.movie)).groupBy(movie.mno);
-
         if (keyword != null) {
             query.where(movie.title.contains(keyword));
         }
@@ -71,7 +68,6 @@ public class SearchMovieRepositoryImpl extends QuerydslRepositorySupport impleme
         query.groupBy(movie);
 
         JPQLQuery<Tuple> tupleJPQLQuery = query.select(movie, movieImage, review.grade.avg(), review.count());
-//        JPQLQuery<Tuple> tupleJPQLQuery = query.select(movie, iquery.select(movieImage), review.grade.avg(), review.count());
 
         getQuerydsl().applyPagination(pageable, tupleJPQLQuery);
 
