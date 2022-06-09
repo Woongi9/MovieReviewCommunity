@@ -68,7 +68,7 @@
 + Thymeleaf
 + Lombok
 + JPA
-+ JPQL
++ Querydsl
 
 ### Build tool
 + Gradle
