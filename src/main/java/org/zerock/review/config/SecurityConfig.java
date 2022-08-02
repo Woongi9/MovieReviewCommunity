@@ -30,15 +30,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.headers().frameOptions().disable();
         http.authorizeRequests()
-                .antMatchers("/movie/list").permitAll()
+                .antMatchers("/movie/list", "/h2-console/**", "/").permitAll()
                 .antMatchers("/movie/read").hasRole("USER")
                 .antMatchers("/movie/register").hasRole("MANAGER")
                 .antMatchers("/movie/modify").hasRole("USER");
 
         http.formLogin().defaultSuccessUrl("/movie/list"); //인가/인증에 문제시 로그인 화면
         http.csrf().disable();
-        http.logout().logoutSuccessUrl("/movie/list");
+        http.logout().logoutSuccessUrl("/");
         http.oauth2Login().defaultSuccessUrl("/movie/list");
     }
 }
