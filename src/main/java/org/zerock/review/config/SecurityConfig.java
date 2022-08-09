@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/movie/list", "/h2-console/**", "/").permitAll()
                 .antMatchers("/movie/read").hasRole("USER")
-                .antMatchers("/movie/register").hasRole("MANAGER")
+                .antMatchers("/movie/register").hasRole("USER")
                 .antMatchers("/movie/modify").hasRole("USER");
 
         http.formLogin().defaultSuccessUrl("/movie/list"); //인가/인증에 문제시 로그인 화면
