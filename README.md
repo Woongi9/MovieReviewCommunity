@@ -16,6 +16,7 @@
 - [클래스 다이어그램](#다이어그램)
 - [시퀀스 다이어그램](#시퀀스)
 - [핵심 기능](#핵심)
+  + [계층형 구조 아키텍처 설계](#핵심0)
   + [DTO 계층과 서비스 계층 구성](#핵심1)
   + [JUnit Test 구현](#핵심2)
   + [JpaRepository를 통한 CRUD 구현](#핵심3)
@@ -88,7 +89,7 @@
 
 ## <div id="주요">주요 내용</div>
 
-* 개인으로 Spring Boot를 사용하여 웹 애플리케이션 전과정 경험, 운영
+* 개인으로 Spring Boot로 계층형 아키텍처 기반  웹 애플리케이션 전과정 경험, 운영
 * MVC 프레임워크 기반 백엔드 서버 구축
 * JPA 사용, Hibernate를 사용한 도메인 설계
 * Spring Security를 사용한 로그인 과정
@@ -210,6 +211,20 @@ _Chrome에 구글 로그이 되어있느 사용자가 있어 클릭만 해도 �
 
 ---
 ## <div id="핵심">핵심 기능</div>
+
+### <div id="핵심0">계층형 구조 아키텍처 설계</div>
+
+<img width="319" alt="image" src="https://user-images.githubusercontent.com/79649052/188583339-85b16ac1-7963-43b0-806c-e0bdc4be69df.png">
+
+* **계층형 구조 사용**
+  * controller : 웹 계층
+  * service : 비즈니스 로직, 트랜잭션 처리
+  * repository : JPA를 직접 사용하는 계층, 엔티티 매니저 사용
+  * domain : 엔티티가 모여있는 계층, 모든 계층에서 사용
+
+_토비의 스프링 3계층 아키텍처 참고_
+
+<br></br>
 
 ### <div id="핵심1">DTO 계층과 서비스 계층 구성</div>
 <img width="192" alt="image" src="https://user-images.githubusercontent.com/79649052/168465090-5785f231-564e-45ae-a778-5f029a60b9c2.png">
