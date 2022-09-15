@@ -91,8 +91,8 @@
 
 * 개인으로 Spring Boot로 계층형 아키텍처 기반  웹 애플리케이션 전과정 경험, 운영
 * MVC 프레임워크 기반 백엔드 서버 구축
-* JPA 사용, Hibernate를 사용한 도메인 설계
-* Spring Security를 사용한 로그인 과정
+* [JPA 사용, Hibernate](https://velog.io/@woongi9/JPA%EC%99%80-ORM-%EC%86%8C%EA%B0%9C)를 사용한 [RDBMS](https://velog.io/@woongi9/RDBMS%EC%99%80-NoSQL) 도메인 설계
+* [Spring Security를 사용한 로그인 과정](https://velog.io/@woongi9/%EC%8A%A4%ED%94%84%EB%A7%81-Spring-Security-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B3%BC%EC%A0%95-%EC%84%A4%EB%AA%85%ED%9A%8C)
 * 구글 소셜 로그인 구현
 
 <br></br>
